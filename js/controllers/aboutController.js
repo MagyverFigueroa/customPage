@@ -1,6 +1,7 @@
 angular.module('customPage')
-	.controller('aboutController',function(aboutService, specializationService){
-	  var vm = this;
-	  vm.selected = 0;
+	.controller('aboutController',aboutController);
 
-	});
+function aboutController(aboutService, specializationService){
+  var vm = this;
+  vm.selected = 0;
+}

@@ -1,11 +1,22 @@
 angular.module('customPage')
-	.service('specializationService', function($http, $q) {
-	  var deferred = $q.defer();
-	  $http.get('js/json/specializationJson.json').then(function(data) {
-	      deferred.resolve(data);
-	  });
-	  this.getText = function(){
-	      return deferred.promise;
-	  };
+	.service('specializationService', specializationService);
 
-	});
+function specializationService($http, $q) {
+	var deferred = $q.defer();
+	var service = {
+		getText: getText
+	};
+
+	return service;
+
+ 	function getText(){
+ 	  var deferred = $q.defer();
+
+      return $http.get('js/json/specializationJson.json').then(getTextComplete);
+
+	  function getTextComplete(response){
+	  	 deferred.resolve(response);
+	  	return deferred.promise;
+	  }
+    };
+}
