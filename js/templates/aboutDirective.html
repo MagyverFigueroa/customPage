@@ -1,0 +1,24 @@
+<div ng-repeat="item in aboutList">
+  <div ng-class= "{'odd' : item.class == 'odd'}" class="text-container mt40 pt40">
+    <h2 class="pt40 text-center">{{item.title}}</h2>
+    <div class="row center-margin">
+      <div ng-if = "item.class === 'normal'">
+        <div class="display-inline text-center">
+          <img ng-src="images/{{item.img}}" alt="Coffee-Love" />
+        </div>
+        <div class="display-inline text-center pl30 pr30  content-text">
+          <p>{{item.text}}</p>
+        </div>
+      </div>
+      <div ng-if = "item.class === 'odd'">
+        <div class="display-inline text-center pl30 pr30 content-text">
+          <p>{{item.text}}</p>
+        </div>
+        <div class="display-inline text-center">
+          <img  ng-src="images/{{item.img}}" alt="happy-face" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
